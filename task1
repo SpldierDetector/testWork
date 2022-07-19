@@ -1,0 +1,36 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    // подсчет числа символов '+' в строке
+    char str[50]; // вводимое слово
+    char rslt[50]; // результат
+    char s; // переменная для символа
+    int i, d; // счётчики
+    int k; // количество символа
+
+    // ввод строки str
+    cout << "Введите слово:";
+    cin.get (str, 50);
+    for (i = 0; i < strlen(str); i++)
+        rslt[i] = str[i];
+
+    k = 0; // обнулить счетчик
+    for (i = 0; i < strlen(str); i++)
+    {
+        k = 0;
+        str[i] = tolower(str[i]);
+        for (d = 0; d < strlen(str); d++)
+            if (str[d] == str[i])
+                    k++;
+            if (k > 1)
+                rslt[i] = ')';
+            else
+                rslt[i] = '(';
+            cout << rslt[i];
+    }
+    // вывод результата
+}
